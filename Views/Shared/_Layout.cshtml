@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] @ViewData["Title"] - ManualidadesEunice</title>
+    <link rel="icon" href="~/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-utilities.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ManualidadesEunice.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/eunice.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.5/css/dataTables.bootstrap5.css">
+    @await RenderSectionAsync("Estilos", required: false)
+
+
+
+</head>
+<body class="table-responsive-sm">
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar-toggle">
+            <div class="sidebar-logo">
+                <img src="/imagenes/logoE.png" alt="Alternate Text" width="150px" height="90px" />
+            </div>
+            <!-- Sidebar Navigation -->
+            <ul class="sidebar-nav p-0">
+                <li class="sidebar-header">
+                    Menú
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                       data-bs-target="#uno" aria-expanded="true" aria-controls="uno">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <span>Ventas</span>
+                    </a>
+                    <ul id="uno" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item"><a class="sidebar-links" asp-area="" asp-controller="Clientes" asp-action="Index"><i class=""></i> Clientes</a></li>
+                        <li class="sidebar-item"><a class="sidebar-links" asp-area="" asp-controller="Usuario" asp-action="Index"><i class=""></i> Ventas</a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                       data-bs-target="#dos" aria-expanded="true" aria-controls="dos">
+                        <i class="bi bi-bag-plus-fill"></i>
+                        <span>Compras</span>
+                    </a>
+                    <ul id="dos" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item"><a class="sidebar-links" asp-area="" asp-controller="Rol" asp-action="Index"><i class=""></i> Clientes</a></li>
+                        <li class="sidebar-item"><a class="sidebar-links" asp-area="" asp-controller="Usuario" asp-action="Index"><i class=""></i> Ventas</a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                       data-bs-target="#tres" aria-expanded="true" aria-controls="tres">
+                        <i class="bi bi-card-checklist"></i>
+                        <span>Inventario</span>
+                    </a>
+                    <ul id="tres" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item"><a class="sidebar-links" asp-area="" asp-controller="Rol" asp-action="Index"><i class=""></i> Clientes</a></li>
+                        <li class="sidebar-item"><a class="sidebar-links" asp-area="" asp-controller="Usuario" asp-action="Index"><i class=""></i> Ventas</a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                       data-bs-target="#cuatro" aria-expanded="true" aria-controls="cuatro">
+                        <i class="bi bi-gear-fill"></i>
+                        <span>setting</span>
+                    </a>
+                    <ul id="cuatro" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item"><a class="sidebar-links" asp-area="" asp-controller="Categorias" asp-action="Index"><i class=""></i>Categorías</a></li>
+                        <li class="sidebar-item"><a class="sidebar-links" asp-area="" asp-controller="Marcas" asp-action="Index"><i class=""></i>Marcas</a></li>
+                        <li class="sidebar-item"><a class="sidebar-links" asp-area="" asp-controller="TipoProductos" asp-action="Index"><i class=""></i>Tipos</a></li>
+                        <li class="sidebar-item"><a class="sidebar-links" asp-area="" asp-controller="Presentacion" asp-action="Index"><i class=""></i>Presentación</a></li>
+                        <li class="sidebar-item"><a class="sidebar-links" asp-area="" asp-controller="Usuario" asp-action="Index"><i class=""></i>Usuarios</a></li>
+
+                    </ul>
+                </li>
+
+
+            </ul>
+            <!-- Sidebar Navigation Ends -->
+            <div class="sidebar-footer">
+                <li class="sidebar-item"><a class="sidebar-links" asp-area="" asp-controller="Home" asp-action="CerrarSesion"><i class="lni lni-exit"></i>Cerrar sesion</a></li>
+            </div>
+        </aside>
+        <!-- Sidebar Ends -->
+        <!-- Main Component -->
+        <div class="main">
+            <nav class="navbar navbar-expand">
+                <button class="toggler-btn" type="button">
+                    <i class="lni lni-text-align-left"></i>
+                </button>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CerrarSesion">Cerrar Sesion</a>
+            </nav>
+            <div class="container">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </div>
+    @*
+    <footer class="border-top footer text-muted">
+    <div class="container">
+    &copy; 2024 - ManualidadesEunice - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+    </footer>
+    *@
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/eunice.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://cdn.datatables.net/2.1.5/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.1.5/js/dataTables.bootstrap5.js"></script>
+  
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

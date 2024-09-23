@@ -1,0 +1,47 @@
+﻿@model ManualidadesEunice.Models.Cliente
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row mt-5">
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-xl-10 col-md-3">
+
+            <div class="card">
+                <div class="card-body">
+
+                    <h5> Estas a punto de eliminar este registro</h5>
+                    <hr />
+                    <dl class="row">
+                        <dd class="col-sm-9">
+                            CÓDIGO: @Html.DisplayFor(model => model.CodigoCliente)
+                        </dd>
+                        <dd class="col-sm-9">
+                            NOMBRE: @Html.DisplayFor(model => model.NombreCliente)
+                        </dd>
+
+                    </dl>
+                    <form asp-controller="Clientes" asp-action="Delete" method="post">
+                        <div class="card-footer">
+                            <div class="row pt-1">
+                                <div class="col-12 col-md-12 mb-1 text-end">
+                                    <input type="hidden" asp-for="CodigoCliente" />
+                                    <input type="submit" value="Delete" class="btn btn-danger" />
+                                    <a asp-controller="Clientes" asp-action="Index" class="btn btn-outline-primary">Regresar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,38 @@
+﻿@model ManualidadesEunice.Models.TipoProducto
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row mt-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-xl-11 col-md-11">
+            <h2> Detalles de tipo producto</h2>
+            <hr />
+            <h5> Registro con estado  <span class="text-success"> " 1 "</span>  es ACTIVO estado <span class="text-danger"> " 2 "</span>es INACTIVO </h5>
+
+
+            <dl class="row">
+                <dd class="col-sm-9">
+                    NOMBRE: @Html.DisplayFor(model => model.NombreTipoProducto)
+                </dd>
+                <dd class="col-sm-9">
+                    ESTADO: @Html.DisplayFor(model => model.Estado)
+                </dd>
+                <dd class="col-sm-9">
+                    FECHA: @Html.DisplayFor(model => model.FechaRegistro)
+                </dd>
+            </dl>
+            <hr />
+        </div>
+
+
+    </div>
+
+    <div class="col-12 col-md-11 mb-1 text-end">
+        <a asp-controller="TipoProductos" asp-action="Index" class="btn btn-outline-primary">Regresar</a>
+    </div>
+</div>
+

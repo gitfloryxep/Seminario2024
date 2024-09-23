@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ManualidadesEunice.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row mt-5">
+    <div action="col-12">
+
+        <div class="card border">
+            @* CARD HEADER *@
+            <div class="card-header bg-light">
+                <div class="row">
+                    <div class="col">
+                        <h3>
+                            <strong>Listado de clientes</strong>
+                        </h3>
+                    </div>
+                    <div class="col">
+                        <h3 class="text-white text-end">
+                            <a asp-action="Create" asp-controller="Clientes" class="btn btn-success">
+                                <i class="bi bi-file-plus-fill"></i> Nuevo
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            @* CARD HEADER *@
+            <div class="card-body">
+                <table id="Paginador" class="table table-borderless table-striped table-light" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Teléfono</th>
+                            <th>Dirección</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.CodigoCliente</td>
+                                <td>@item.NombreCliente</td>
+                                <td>@item.Telefono</td>
+                                <td>@item.Direccion</td>
+
+                                @if (item.Estado == 1)
+                                {
+                                    <td emp="button"><span class="text-success"> Activo</span></td>
+                                }
+                                else if (item.Estado == 2)
+                                {
+                                    <td emp="button"><span class="text-danger"> Inactivo</span></td>
+                                }
+                                <td>
+                                    <a class="btn btn-outline-primary btn-sm " asp-action="Edit" asp-controller="Clientes" asp-route-id="@item.CodigoCliente"><i class="bi bi-pencil-square"></i></a>
+                                    <a class="btn btn-outline-info btn-sm " asp-action="Details" asp-controller="Clientes" asp-route-id="@item.CodigoCliente"><i class="bi bi-list-check"></i></a>
+                                    <a class="btn btn-outline-danger btn-sm " asp-action="Delete" asp-controller="Clientes" asp-route-id="@item.CodigoCliente"><i class="bi bi-trash-fill"></i></a>
+                                </td>
+                            </tr>
+
+
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            formatoTablaResponsive();
+        });
+    </script>
+
+}
