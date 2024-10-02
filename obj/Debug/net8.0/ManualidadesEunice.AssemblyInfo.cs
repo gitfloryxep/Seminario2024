@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ManualidadesEunice")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e8012a1c670c943509805b8269f422bc386db441")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b2bb564f400b4fb6f549d8c268bcc2742aab044")]
 [assembly: System.Reflection.AssemblyProductAttribute("ManualidadesEunice")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ManualidadesEunice")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

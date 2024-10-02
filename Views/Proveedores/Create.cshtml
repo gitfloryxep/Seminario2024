@@ -1,0 +1,93 @@
+﻿@model ManualidadesEunice.Models.Proveedor
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row mt-5">
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-xl-10 col-md-3">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>
+                        <strong>Crear Proveedores</strong>
+                    </h3>
+                </div>
+                <div class="card-body">
+
+                    <form asp-controller="Proveedores" asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row visually-hidden">
+                            <div class="hidden">
+                                <label asp-for="CodigoProveedor"></label>
+                                <input class="form-control" type="text" asp-for="CodigoProveedor" readonly />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12 col-xl-6 mb-3">
+                                <label asp-for="CodigoCategoria" class="control-label"></label>
+                                <select asp-for="CodigoCategoria" class="form-control" asp-items="ViewBag.CodigoCategoria"></select>
+                                <span asp-validation-for="CodigoCategoria" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 col-md-12 col-xl-6 mb-3">
+                                <label asp-for="NombreProveedor" class="control-label"></label>
+                                <input asp-for="NombreProveedor" class="form-control" placeholder="Nombre del proveedor" />
+                                <span asp-validation-for="NombreProveedor" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12 col-xl-6 mb-3">
+                                <label asp-for="Telefono" class="control-label"></label>
+                                <input asp-for="Telefono" class="form-control" placeholder="Teléfono" />
+                                <span asp-validation-for="Telefono" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 col-md-12 col-xl-6 mb-3">
+                                <label asp-for="Direccion" class="control-label"></label>
+                                <input asp-for="Direccion" class="form-control" placeholder="Dirección" />
+                                <span asp-validation-for="Direccion" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12 col-xl-5 mb-3">
+                                <label asp-for="NombreBanco" class="control-label"></label>
+                                <input asp-for="NombreBanco" class="form-control" placeholder="Banco" />
+                                <span asp-validation-for="NombreBanco" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 col-md-12 col-xl-5 mb-3">
+                                <label asp-for="NumeroCuenta" class="control-label"></label>
+                                <input asp-for="NumeroCuenta" class="form-control" placeholder="Número de cuenta" />
+                                <span asp-validation-for="NumeroCuenta" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 col-md-12 col-xl-2 mb-3">
+                                <label asp-for="Estado"></label>
+                                <select class="form-control mb-3" type="text" placeholder="Estado" required asp-for="Estado">
+                                    <option value="1">Activo</option>
+                                    <option value="2">Inactivo</option>
+                                </select>
+                                <span asp-validation-for="Estado" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <div class="row pt-1">
+                                <div class="col-6 col-md-6 mb-1 text-start">
+                                    <a asp-controller="Proveedores" asp-action="Index" class="btn btn-outline-primary">Regresar</a>
+                                </div>
+                                <div class="col-6 col-md-6 mb-1 text-end">
+                                    <input type="submit" value="Create" class="btn btn-success" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

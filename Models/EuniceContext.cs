@@ -23,6 +23,10 @@ public partial class EuniceContext : DbContext
 
     public virtual DbSet<Presentacion> Presentacion { get; set; }
 
+    public virtual DbSet<Producto> Productos { get; set; }
+
+    public virtual DbSet<Proveedor> Proveedores { get; set; }
+
     public virtual DbSet<TipoProducto> TipoProductos { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
@@ -114,6 +118,119 @@ public partial class EuniceContext : DbContext
                 .HasColumnName("nombrePresentacion");
         });
 
+        modelBuilder.Entity<Producto>(entity =>
+        {
+            entity.HasKey(e => e.CodigoProducto).HasName("pk_producto_codigoProducto");
+
+            entity.ToTable("producto");
+
+            entity.Property(e => e.CodigoProducto).HasColumnName("codigoProducto");
+            entity.Property(e => e.Cantidad)
+                .HasMaxLength(64)
+                .IsUnicode(false)
+                .HasColumnName("cantidad");
+            entity.Property(e => e.Codigo)
+                .HasMaxLength(128)
+                .IsUnicode(false)
+                .HasColumnName("codigo");
+            entity.Property(e => e.CodigoCategoria).HasColumnName("codigoCategoria");
+            entity.Property(e => e.CodigoMarca).HasColumnName("codigoMarca");
+            entity.Property(e => e.CodigoPresentacion).HasColumnName("codigoPresentacion");
+            entity.Property(e => e.CodigoProveedor).HasColumnName("codigoProveedor");
+            entity.Property(e => e.CodigoTipoProducto).HasColumnName("codigoTipoProducto");
+            entity.Property(e => e.Costo)
+                .HasMaxLength(64)
+                .IsUnicode(false)
+                .HasColumnName("costo");
+            entity.Property(e => e.Estado).HasColumnName("estado");
+            entity.Property(e => e.FechaRegistro)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime")
+                .HasColumnName("fechaRegistro");
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(128)
+                .IsUnicode(false)
+                .HasColumnName("nombre");
+            entity.Property(e => e.PrecioDocena)
+                .HasMaxLength(64)
+                .IsUnicode(false)
+                .HasColumnName("precioDocena");
+            entity.Property(e => e.PrecioMayorista)
+                .HasMaxLength(64)
+                .IsUnicode(false)
+                .HasColumnName("precioMayorista");
+            entity.Property(e => e.PrecioUnidad)
+                .HasMaxLength(64)
+                .IsUnicode(false)
+                .HasColumnName("precioUnidad");
+            entity.Property(e => e.Stock).HasColumnName("stock");
+
+            entity.HasOne(d => d.CodigoCategoriaNavigation).WithMany(p => p.Productos)
+                .HasForeignKey(d => d.CodigoCategoria)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_producto_categoria_codigoCategoria");
+
+            entity.HasOne(d => d.CodigoMarcaNavigation).WithMany(p => p.Productos)
+                .HasForeignKey(d => d.CodigoMarca)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_producto_marca_codigoMarca");
+
+            entity.HasOne(d => d.CodigoPresentacionNavigation).WithMany(p => p.Productos)
+                .HasForeignKey(d => d.CodigoPresentacion)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_producto_presentacion_codigoPresentacion");
+
+            entity.HasOne(d => d.CodigoProveedorNavigation).WithMany(p => p.Productos)
+                .HasForeignKey(d => d.CodigoProveedor)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_producto_proveedor_codigoProveedor");
+
+            entity.HasOne(d => d.CodigoTipoProductoNavigation).WithMany(p => p.Productos)
+                .HasForeignKey(d => d.CodigoTipoProducto)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_producto_tipoProducto_codigoTipoProducto");
+        });
+
+        modelBuilder.Entity<Proveedor>(entity =>
+        {
+            entity.HasKey(e => e.CodigoProveedor).HasName("pk_proveedore_codigoProveedor");
+
+            entity.ToTable("proveedor");
+
+            entity.Property(e => e.CodigoProveedor).HasColumnName("codigoProveedor");
+            entity.Property(e => e.CodigoCategoria).HasColumnName("codigoCategoria");
+            entity.Property(e => e.Direccion)
+                .HasMaxLength(128)
+                .IsUnicode(false)
+                .HasColumnName("direccion");
+            entity.Property(e => e.Estado).HasColumnName("estado");
+            entity.Property(e => e.FechaRegistro)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime")
+                .HasColumnName("fechaRegistro");
+            entity.Property(e => e.NombreBanco)
+                .HasMaxLength(32)
+                .IsUnicode(false)
+                .HasColumnName("nombreBanco");
+            entity.Property(e => e.NombreProveedor)
+                .HasMaxLength(64)
+                .IsUnicode(false)
+                .HasColumnName("nombreProveedor");
+            entity.Property(e => e.NumeroCuenta)
+                .HasMaxLength(15)
+                .IsUnicode(false)
+                .HasColumnName("numeroCuenta");
+            entity.Property(e => e.Telefono)
+                .HasMaxLength(16)
+                .IsUnicode(false)
+                .HasColumnName("telefono");
+
+            entity.HasOne(d => d.CodigoCategoriaN).WithMany(p => p.Proveedors)
+                .HasForeignKey(d => d.CodigoCategoria)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_proveedore_categoria_codigoCategoria");
+        });
+
         modelBuilder.Entity<TipoProducto>(entity =>
         {
             entity.HasKey(e => e.CodigoTipoProducto).HasName("pk_tipoProducto_codigoTipoProducto");
@@ -163,6 +280,7 @@ public partial class EuniceContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("telefono");
         });
+
         OnModelCreatingPartial(modelBuilder);
     }
 

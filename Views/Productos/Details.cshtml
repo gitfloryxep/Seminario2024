@@ -1,0 +1,74 @@
+﻿@model ManualidadesEunice.Models.Producto
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="row mt-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-xl-11 col-md-11">
+            <h2> Detalles de producto</h2>
+            <hr />
+            <h5> Registro con estado  <span class="text-success"> " 1 "</span>  es ACTIVO estado <span class="text-danger"> " 2 "</span>es INACTIVO </h5>
+
+
+            <dl class="row">
+                <dd class="col-sm-10">
+                    CÓDIGO: @Html.DisplayFor(model => model.Codigo)
+                </dd>
+                <dd class="col-sm-10">
+                    NOMBRE: @Html.DisplayFor(model => model.Nombre)
+                </dd>
+                <dd class="col-sm-10">
+                    COSTO: @Html.DisplayFor(model => model.Costo)
+                </dd>
+                <dd class="col-sm-10">
+                    CANTIDAD: @Html.DisplayFor(model => model.Cantidad)
+                </dd>
+                <dd class="col-sm-10">
+                    PRECIO POR UNIDAD: @Html.DisplayFor(model => model.PrecioUnidad)
+                </dd>
+                <dd class="col-sm-10">
+                    PRECIO POR DOCENA: @Html.DisplayFor(model => model.PrecioDocena)
+                </dd>
+                <dd class="col-sm-10">
+                    PRECIO A MAYORISTA: @Html.DisplayFor(model => model.PrecioMayorista)
+                </dd>
+                <dd class="col-sm-10">
+                    STOCK: @Html.DisplayFor(model => model.Stock)
+                </dd>
+                <dd class="col-sm-10">
+                    CATEGORÍA: @Html.DisplayFor(model => model.CodigoCategoriaNavigation.Nombrecategoria)
+                </dd>
+                <dd class="col-sm-10">
+                    MARCA: @Html.DisplayFor(model => model.CodigoMarcaNavigation.NombreMarca)
+                </dd>
+                <dd class="col-sm-10">
+                    PRESENTACIÓN: @Html.DisplayFor(model => model.CodigoPresentacionNavigation.NombrePresentacion)
+                </dd>
+                <dd class="col-sm-10">
+                    PROVEEDOR: @Html.DisplayFor(model => model.CodigoProveedorNavigation.NombreProveedor)
+                </dd>
+                <dd class="col-sm-10">
+                    TIPO DE PRODUCTO: @Html.DisplayFor(model => model.CodigoTipoProductoNavigation.NombreTipoProducto)
+                </dd>
+                <dd class="col-sm-10">
+                    ESTADO: @Html.DisplayFor(model => model.Estado)
+                </dd>
+                <dd class="col-sm-10">
+                    FECHA: @Html.DisplayFor(model => model.FechaRegistro)
+                </dd>
+            </dl>
+            <hr />
+        </div>
+
+
+    </div>
+
+    <div class="col-12 col-md-11 mb-1 text-end">
+        <a asp-controller="Productos" asp-action="Index" class="btn btn-outline-primary">Regresar</a>
+    </div>
+</div>

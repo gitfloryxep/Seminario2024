@@ -1,0 +1,141 @@
+﻿@model ManualidadesEunice.Models.Producto
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="row mt-3">
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-xl-12 col-md-3">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>
+                        <strong>Editar productos</strong>
+                    </h3>
+                </div>
+                <div class="card-body">
+
+                    <form asp-controller="Productos" asp-action="Edit" method="post">
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="">
+                                <div class="col-12 col-md-12 col-xl-3 mb-3">
+                                    <label asp-for="CodigoProducto"></label>
+                                    <input class="form-control" type="text" asp-for="CodigoProducto" readonly />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12 col-xl-4 mb-3">
+                                <label asp-for="Codigo" class="control-label"></label>
+                                <input asp-for="Codigo" class="form-control" placeholder="Codigo único de producto" />
+                                <span asp-validation-for="Codigo" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 col-md-12 col-xl-8 mb-3">
+                                <label asp-for="Nombre" class="control-label"></label>
+                                <input asp-for="Nombre" class="form-control" placeholder="Nombre del producto" />
+                                <span asp-validation-for="Nombre" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12 col-xl-4 mb-3">
+                                <label asp-for="Costo" class="control-label"></label>
+                                <input asp-for="Costo" class="form-control" placeholder="Precio de costo" />
+                                <span asp-validation-for="Costo" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 col-md-12 col-xl-4 mb-3">
+                                <label asp-for="Cantidad" class="control-label"></label>
+                                <input asp-for="Cantidad" class="form-control" placeholder="cantidad" />
+                                <span asp-validation-for="Cantidad" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 col-md-12 col-xl-4 mb-3">
+                                <label asp-for="PrecioUnidad" class="control-label"></label>
+                                <input asp-for="PrecioUnidad" class="form-control" placeholder="Precio por unidad" />
+                                <span asp-validation-for="PrecioUnidad" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12 col-xl-4 mb-3">
+                                <label asp-for="PrecioDocena" class="control-label"></label>
+                                <input asp-for="PrecioDocena" class="form-control" placeholder="Precio por docena" />
+                                <span asp-validation-for="PrecioDocena" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 col-md-12 col-xl-4 mb-3">
+                                <label asp-for="PrecioMayorista" class="control-label"></label>
+                                <input asp-for="PrecioMayorista" class="form-control" placeholder="Precio por mayor" />
+                                <span asp-validation-for="PrecioMayorista" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 col-md-12 col-xl-4 mb-3">
+                                <label asp-for="Stock" class="control-label"></label>
+                                <input asp-for="Stock" class="form-control" placeholder="Stock" />
+                                <span asp-validation-for="Stock" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12 col-xl-4 mb-3">
+                                <label asp-for="CodigoCategoria" class="control-label"></label>
+                                <select asp-for="CodigoCategoria" class="form-control" asp-items="ViewBag.CodigoCategoria"></select>
+                                <span asp-validation-for="CodigoCategoria" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 col-md-12 col-xl-4 mb-3">
+                                <label asp-for="CodigoMarca" class="control-label"></label>
+                                <select asp-for="CodigoMarca" class="form-control" asp-items="ViewBag.CodigoMarca"></select>
+                                <span asp-validation-for="CodigoMarca" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 col-md-12 col-xl-4 mb-3">
+                                <label asp-for="CodigoPresentacion" class="control-label"></label>
+                                <select asp-for="CodigoPresentacion" class="form-control" asp-items="ViewBag.CodigoPresentacion"></select>
+                                <span asp-validation-for="CodigoPresentacion" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12 col-xl-4 mb-3">
+                                <label asp-for="CodigoTipoProducto" class="control-label"></label>
+                                <select asp-for="CodigoTipoProducto" class="form-control" asp-items="ViewBag.CodigoTipoProducto"></select>
+                                <span asp-validation-for="CodigoTipoProducto" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 col-md-12 col-xl-4 mb-3">
+                                <label asp-for="CodigoProveedor" class="control-label"></label>
+                                <select asp-for="CodigoProveedor" class="form-control" asp-items="ViewBag.CodigoProveedor"></select>
+                                <span asp-validation-for="CodigoProveedor" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 col-md-12 col-xl-4 mb-3">
+                                <label asp-for="Estado"></label>
+                                <select class="form-control mb-3" type="text" placeholder="Estado" required asp-for="Estado">
+                                    <option value="1">Activo</option>
+                                    <option value="2">Inactivo</option>
+                                </select>
+                                <span asp-validation-for="Estado" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row pt-1">
+                                <div class="col-6 col-md-6 mb-1 text-start">
+                                    <a asp-controller="Productos" asp-action="Index" class="btn btn-outline-primary">Regresar</a>
+                                </div>
+                                <div class="col-6 col-md-6 mb-1 text-end">
+                                    <button class="btn btn-success" value="Save" type="submit">Actualizar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

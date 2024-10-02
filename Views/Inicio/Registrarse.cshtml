@@ -10,51 +10,97 @@
     <meta name="viewport" content="width=device-width" />
     <title>Registrarse</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/registro.css" />
 </head>
 <body>
     
+    <div class="row mt-12">
 
-    <div class="container mt-5 pt-5">
-
-        <div class="row justify-content-center">
-            <div class="col-12 col-xl-4 col-md-6">
+        <div class="row">
+            <div class="col-12 col-xl-12 col-md-3">
 
                 <div class="card">
                     <div class="card-header">
-                        Registrarse
+                        <h3>
+                            <strong>Registrarse</strong>
+                        </h3>
                     </div>
                     <div class="card-body">
 
                         <form asp-controller="Inicio" asp-action="Registrarse" method="post">
-
-                            <input class="form-control mb-3" type="text" placeholder="Nombre completo" asp-for="NombreApellido" required />
-                            <select class="form-control mb-3" type="text" placeholder="Rol" required asp-for="Rol">
-                                <option value="1">Activo</option>
-                                <option value="2">Inactivo</option>
-                            </select>
-                            <span asp-validation-for="Rol" class="text-danger"></span>
-                            <input class="form-control mb-3" type="date" placeholder="Fecha de nacimiento" required asp-for="FechaNacimiento" />
-                            <input class="form-control mb-3" type="number" placeholder="Teléfono" asp-for="Telefono" required />
-                            <input class="form-control mb-3" type="email" placeholder="Correo" required asp-for="Email" />
-                            <input class="form-control mb-3" type="password" placeholder="Contraseña" asp-for="Contrasena" required />
-                            <select class="form-control mb-3" type="text" placeholder="Estado" required asp-for="Estado">
-                                <option value="1">Empleado</option>
-                                <option value="2">Administrador</option>
-                            </select>
-                            <span asp-validation-for="Estado" class="text-danger"></span>
-                            <div class="d-grid gap-2 mb-3">
-                                <button class="btn btn-primary" type="submit">Registrate</button>
-                            </div>
-                            @if (ViewData["Mensaje"] != null)
-                            {
-
-                                <div class="form-group">
-                                    <div class="alert alert-danger" role="alert">
-                                        @ViewData["Mensaje"]
-                                    </div>
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="row visually-hidden">
+                                <div class="hidden">
+                                    <label asp-for="CodigoUsuario"></label>
+                                    <input class="form-control" type="text" asp-for="CodigoUsuario" readonly />
                                 </div>
-                            }
-                            ¿Ya tienes una cuenta? <a href="@Url.Action("IniciarSesion","Inicio")"> Iniciar Sesion</a>
+                            </div>
+                            <div class="row ">
+                                <div class="col-12 col-md-12 col-xl-12 mb-3">
+                                    <label asp-for="NombreApellido" class="control-label"></label>
+                                    <input class="form-control mb-3" type="text" placeholder="Nombre completo" asp-for="NombreApellido" required />
+                                    <span asp-validation-for="NombreApellido" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-12 col-xl-6 mb-3">
+                                    <label asp-for="Telefono" class="control-label"></label>
+                                    <input class="form-control mb-3" type="number" placeholder="Teléfono" asp-for="Telefono" required />
+                                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-md-12 col-xl-6 mb-3">
+                                    <label asp-for="FechaNacimiento" class="control-label"></label>
+                                    <input class="form-control mb-3" type="date" placeholder="Fecha de nacimiento" required asp-for="FechaNacimiento" />
+                                    <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-12 col-xl-6 mb-3">
+                                    <label asp-for="Email" class="control-label"></label>
+                                    <input class="form-control mb-3" type="email" placeholder="Correo" required asp-for="Email" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-md-12 col-xl-6 mb-3">
+                                    <label asp-for="Contrasena" class="control-label"></label>
+                                    <input class="form-control mb-3" type="password" placeholder="Contraseña" asp-for="Contrasena" required />
+                                    <span asp-validation-for="Contrasena" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-12 col-xl-6 mb-3">
+                                    <label asp-for="Rol" class="control-label"></label>
+                                    <select class="form-control mb-3" type="text" placeholder="Rol" required asp-for="Rol">
+                                        <option value="1">Empleado</option>
+                                        <option value="2">Administrador</option>
+                                    </select>
+                                    <span asp-validation-for="Rol" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 col-md-12 col-xl-6 mb-3">
+                                    <label asp-for="Estado" class="control-label"></label>
+                                    <select class="form-control mb-3" type="text" placeholder="Estado" required asp-for="Estado"> 
+                                        <option value="1">Activo</option>
+                                        <option value="2">Inactivo</option>
+                                    </select>
+                                    <span asp-validation-for="Estado" class="text-danger"></span>
+                               
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row pt-1">
+                                    <button class="btn btn-primary" type="submit">Registrate</button>
+                                </div>
+                                @if (ViewData["Mensaje"] != null)
+                                {
+
+                                    <div class="form-group">
+                                        <div class="alert alert-danger" role="alert">
+                                            @ViewData["Mensaje"]
+                                        </div>
+                                    </div>
+                                }
+                                ¿Ya tienes una cuenta? <a href="@Url.Action("IniciarSesion","Inicio")"> Iniciar Sesion</a>
+                                       
+                            </div>
 
                         </form>
 
@@ -65,7 +111,7 @@
             </div>
         </div>
 
-    </div>      
+    </div>    
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

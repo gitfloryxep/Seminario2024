@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WDIvTmRxs4irlQpM2gQCZsqoPH0hauchcNM0l1qO/tc=",
+  "Hash": "s4PSYP/arA99qcZ7vDrW4tc972sOmwvhbK9QCWRBQ7A=",
   "Source": "ManualidadesEunice",
   "BasePath": "_content/ManualidadesEunice",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
+      "Identity": "C:\\Users\\Fxep\\Desktop\\netcore\\ManualidadesEunice\\wwwroot\\css\\registro.css",
+      "SourceId": "ManualidadesEunice",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Fxep\\Desktop\\netcore\\ManualidadesEunice\\wwwroot\\",
+      "BasePath": "_content/ManualidadesEunice",
+      "RelativePath": "css/registro.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\registro.css"
     },
     {
       "Identity": "C:\\Users\\Fxep\\Desktop\\netcore\\ManualidadesEunice\\wwwroot\\css\\site.css",
